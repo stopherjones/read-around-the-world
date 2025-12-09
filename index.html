@@ -1,59 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flag Gallery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Reading Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <!-- CSS -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background: #f9f9f9;
-    }
+    <h1 class="main-title">Countries I've Read From</h1>
 
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
+    <!-- Sticky Nav Bar -->
+    <nav class="filter-bar">
 
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
+        <div class="filter-group">
+            <label for="searchInput">Search</label>
+            <input type="text" id="searchInput" placeholder="Find a country...">
+        </div>
 
-    #continent-filter,
-    #search-box {
-      padding: 0.5rem;
-      font-size: 1rem;
-      border-radius: 0.25rem;
-      border: 1px solid #ccc;
-    }
+        <div class="filter-group">
+            <label for="continentFilter">Continent</label>
+            <select id="continentFilter">
+                <option value="all">All</option>
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Oceania">Oceania</option>
+                <option value="Antarctica">Antarctica</option>
+            </select>
+        </div>
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
+        <div class="filter-group">
+            <label for="typeFilter">Type</label>
+            <select id="typeFilter">
+                <option value="all">All</option>
+                <option value="country">Countries</option>
+                <option value="territory">Territories</option>
+            </select>
+        </div>
 
-    .gallery-item {
-      text-align: center;
-      background: #fff;
-      padding: 0.5rem;
-      border-radius: 0.25rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
+    </nav>
 
-    .gallery-item:hover {
-      transform: translateY(-5px);
-    }
+    <!-- Gallery -->
+    <div id="gallery" class="gallery"></div>
 
-    .gallery-image {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      ob
+    <script src="script.js"></script>
+</body>
+</html>
