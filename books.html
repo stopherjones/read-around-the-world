@@ -23,26 +23,26 @@
             margin: 0 auto;
         }
 
-        h1 {
+        .main-title {
             text-align: center;
-            margin-bottom: 0.5rem;
-            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .subtitle {
             text-align: center;
+            margin-bottom: 1.5rem;
             color: #666;
-            margin-bottom: 2rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .back-link {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
+            top: 1.5rem;
+            right: 1.5rem;
             color: #0066cc;
             text-decoration: none;
             font-size: 0.95rem;
+            z-index: 60;
         }
 
         .back-link:hover {
@@ -138,7 +138,7 @@
 <body>
     <a href="index.html" class="back-link">Back to Gallery</a>
     <div class="container">
-        <h1>Books I've Read</h1>
+        <h1 class="main-title">Books I've Read</h1>
         <p class="subtitle">A complete list of books organized by country of origin</p>
 
         <div id="booksList" class="books-list"></div>
