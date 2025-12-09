@@ -18,6 +18,19 @@ body {
     font-size: 0.95rem;
 }
 
+.top-link {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.top-link:hover {
+    text-decoration: underline;
+}
+
 /* ----------------- NAV BAR ----------------- */
 
 .filter-bar {
