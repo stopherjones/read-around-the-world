@@ -1,8 +1,0 @@
-id,name,region,type,flag,filterable,read,book_title,book_author
-afghanistan,Afghanistan,Asia,country,https://flagcdn.com/w320/af.png,TRUE,FALSE,,
-albania,Albania,Europe,country,https://flagcdn.com/w320/al.png,TRUE,FALSE,,
-england,England,Territories,territory,https://flagcdn.com/w320/gb-eng.png,FALSE,FALSE,,
-scotland,Scotland,Territories,territory,https://flagcdn.com/w320/gb-sct.png,FALSE,FALSE,,
-wales,Wales,Territories,territory,https://flagcdn.com/w320/gb-wls.png,FALSE,FALSE,,
-scilly,Isles of Scilly,Territories,territory,https://flagcdn.com/w320/gb-ios.png,FALSE,FALSE,,
-greenland,Greenland,Territories,territory,https://flagcdn.com/w320/gl.png,FALSE,FALSE,,
