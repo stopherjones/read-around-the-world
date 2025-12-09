@@ -198,7 +198,7 @@
   "type": "territory", 
   "continent": "Europe", 
   "read": true, 
-  "books": [{ "title": "The Remains of the Day", "author": "Kazou Ishiguro" },
+  "books": [{ "title": "The Remains of the Day", "author": "Kazuo Ishiguro" },
   { "title": "Thursday Murder Club", "author": "Richard Osman" }] },
   { "name": "Scotland", 
   "code": "images/scotland.png", 
