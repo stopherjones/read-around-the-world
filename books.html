@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read Around the World - List of Books</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -148,6 +149,29 @@
         <h1 class="main-title">Books I've Read</h1>
         <p class="subtitle">A complete list of books organized by country of origin</p>
 
+        <!-- Sticky Nav Bar -->
+        <nav class="filter-bar">
+
+            <div class="filter-group">
+                <label for="searchInput">Search</label>
+                <input type="text" id="searchInput" placeholder="Find a country...">
+            </div>
+
+            <div class="filter-group">
+                <label for="continentFilter">Continent</label>
+                <select id="continentFilter">
+                    <option value="all">All</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </div>
+
+        </nav>
+
         <div id="booksList" class="books-list"></div>
     </div>
 
@@ -161,12 +185,25 @@
                 renderBooks();
             });
 
+        // Attach filter listeners so the nav controls update the list
+        const searchEl = document.getElementById('searchInput');
+        const continentEl = document.getElementById('continentFilter');
+        if (searchEl) searchEl.addEventListener('input', renderBooks);
+        if (continentEl) continentEl.addEventListener('change', renderBooks);
+
         function renderBooks() {
             const booksList = document.getElementById("booksList");
             booksList.innerHTML = "";
 
-            // Filter for countries/territories with read: true and books
-            const readItems = countriesData.filter(c => c.read && c.books && c.books.length > 0);
+            // Apply search + continent filters to read countries/territories with books
+            const search = (document.getElementById('searchInput') && document.getElementById('searchInput').value) ? document.getElementById('searchInput').value.toLowerCase() : '';
+            const continent = (document.getElementById('continentFilter') && document.getElementById('continentFilter').value) ? document.getElementById('continentFilter').value : 'all';
+
+            const readItems = countriesData.filter(c =>
+                c.read && c.books && c.books.length > 0 &&
+                (search === '' || c.name.toLowerCase().includes(search)) &&
+                (continent === 'all' || c.continent === continent)
+            );
 
             if (readItems.length === 0) {
                 booksList.innerHTML = '<div class="empty-state">No books recorded yet.</div>';
