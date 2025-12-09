@@ -220,7 +220,8 @@
     "continent": "Europe",
     "read": true,
     "books": [
-      { "title": "Devil's Table", "author": "Kate Rhodes" }
+      { "title": "Devil's Table", "author": "Kate Rhodes" }, 
+      { "title": "Scilly Sergeant", "author": "Colin Taylor" }
     ]
   }
 ]
