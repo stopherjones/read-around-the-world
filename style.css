@@ -35,6 +35,10 @@ body {
     gap: 0.3rem;
 }
 
+.filter-group:last-of-type {
+    margin-left: auto;
+}
+
 .filter-group label {
     font-size: 0.8rem;
     color: #444;
