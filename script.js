@@ -10,75 +10,102 @@ fetch("countries.json")
 function renderGallery(data) {
     const gallery = document.getElementById("gallery");
     gallery.innerHTML = "";
+    // Mark the gallery as containing sections so the outer container won't layout children in columns
+    gallery.classList.add('sectioned');
 
-    data.forEach(country => {
-        const item = document.createElement("div");
-        item.classList.add("gallery-item");
+    // Group by type: countries and territories
+    const countries = data.filter(d => d.type === 'country');
+    const territories = data.filter(d => d.type === 'territory');
 
-        const wrapper = document.createElement("div");
-        wrapper.classList.add("flag-wrapper");
+    function renderSection(title, items) {
+        if (!items || items.length === 0) return;
+        const heading = document.createElement('div');
+        heading.classList.add('section-title');
+        heading.textContent = title;
+        gallery.appendChild(heading);
 
-        const img = document.createElement("img");
-        img.classList.add("gallery-image");
+        const grid = document.createElement('div');
+        grid.classList.add('gallery-grid');
 
-        if (!country.read) img.classList.add("grayscale");
+        items.forEach(country => {
+            const item = document.createElement("div");
+            item.classList.add("gallery-item");
 
-        // Choose image source
-        if (country.code.includes("/") || country.code.startsWith("http")) {
-            img.src = country.code;
-        } else {
-            img.src = `https://flagcdn.com/w640/${country.code}.png`;
-        }
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("flag-wrapper");
 
-        img.alt = `Flag of ${country.name}`;
-        wrapper.appendChild(img);
-        item.appendChild(wrapper);
+            const img = document.createElement("img");
+            img.classList.add("gallery-image");
 
-        const caption = document.createElement("div");
-        caption.classList.add("caption");
-        caption.textContent = country.name;
-        item.appendChild(caption);
+            if (!country.read) img.classList.add("grayscale");
 
-        // Popup only for read countries
-        if (country.read && country.books.length > 0) {
-            const overlay = document.createElement("div");
-            overlay.classList.add("popup-overlay");
+            // Choose image source
+            if (country.code.includes("/") || country.code.startsWith("http")) {
+                img.src = country.code;
+            } else {
+                img.src = `https://flagcdn.com/w640/${country.code}.png`;
+            }
 
-            const popup = document.createElement("div");
-            popup.classList.add("popup-box");
+            img.alt = `Flag of ${country.name}`;
+            wrapper.appendChild(img);
+            item.appendChild(wrapper);
 
-            const title = document.createElement("h2");
-            title.textContent = country.name;
-            popup.appendChild(title);
+            const caption = document.createElement("div");
+            caption.classList.add("caption");
+            caption.textContent = country.name;
+            item.appendChild(caption);
 
-            const list = document.createElement("ul");
-            country.books.forEach(book => {
-                const li = document.createElement("li");
-                li.textContent = `${book.title} – ${book.author}`;
-                list.appendChild(li);
-            });
-            popup.appendChild(list);
+            // Popup only for read countries/territories
+            if (country.read && country.books && country.books.length > 0) {
+                const overlay = document.createElement("div");
+                overlay.classList.add("popup-overlay");
 
-            const close = document.createElement("a");
-            close.href = "#";
-            close.classList.add("close-btn");
-            close.textContent = "Close";
-            close.addEventListener("click", e => {
-                e.preventDefault();
-                overlay.classList.remove("active");
-            });
-            popup.appendChild(close);
+                const popup = document.createElement("div");
+                popup.classList.add("popup-box");
 
-            overlay.appendChild(popup);
-            item.appendChild(overlay);
+                const titleEl = document.createElement("h2");
+                titleEl.textContent = country.name;
+                popup.appendChild(titleEl);
 
-            wrapper.addEventListener("click", () => {
-                overlay.classList.add("active");
-            });
-        }
+                const list = document.createElement("ul");
+                country.books.forEach(book => {
+                    const li = document.createElement("li");
+                    li.textContent = `${book.title} – ${book.author}`;
+                    list.appendChild(li);
+                });
+                popup.appendChild(list);
 
-        gallery.appendChild(item);
-    });
+                const close = document.createElement("a");
+                close.href = "#";
+                close.classList.add("close-btn");
+                close.textContent = "Close";
+                close.addEventListener("click", e => {
+                    e.preventDefault();
+                    overlay.classList.remove("active");
+                });
+                popup.appendChild(close);
+
+                overlay.appendChild(popup);
+                item.appendChild(overlay);
+
+                wrapper.addEventListener("click", () => {
+                    overlay.classList.add("active");
+                });
+            }
+
+            grid.appendChild(item);
+        });
+
+        gallery.appendChild(grid);
+    }
+
+    renderSection('Countries', countries);
+    renderSection('Other regions and territories', territories);
+
+    // If no sections were rendered (empty), remove the sectioned flag so gallery behaves like before
+    if (gallery.querySelectorAll('.section-title').length === 0) {
+        gallery.classList.remove('sectioned');
+    }
 }
 
 /* ----------------- FILTER LOGIC ----------------- */

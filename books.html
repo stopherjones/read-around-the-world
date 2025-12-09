@@ -118,6 +118,12 @@
             font-weight: 600;
         }
 
+        .gallery-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 1rem;
@@ -145,33 +151,33 @@
 </head>
 <body>
     <a href="index.html" class="back-link">Back to Gallery</a>
+    <h1 class="main-title">Books I've Read</h1>
+    <p class="subtitle">A complete list of books organized by country of origin</p>
+
+    <!-- Sticky Nav Bar -->
+    <nav class="filter-bar">
+
+        <div class="filter-group">
+            <label for="searchInput">Search</label>
+            <input type="text" id="searchInput" placeholder="Find a country...">
+        </div>
+
+        <div class="filter-group">
+            <label for="continentFilter">Continent</label>
+            <select id="continentFilter">
+                <option value="all">All</option>
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+        </div>
+
+    </nav>
+
     <div class="container">
-        <h1 class="main-title">Books I've Read</h1>
-        <p class="subtitle">A complete list of books organized by country of origin</p>
-
-        <!-- Sticky Nav Bar -->
-        <nav class="filter-bar">
-
-            <div class="filter-group">
-                <label for="searchInput">Search</label>
-                <input type="text" id="searchInput" placeholder="Find a country...">
-            </div>
-
-            <div class="filter-group">
-                <label for="continentFilter">Continent</label>
-                <select id="continentFilter">
-                    <option value="all">All</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Europe">Europe</option>
-                    <option value="North America">North America</option>
-                    <option value="South America">South America</option>
-                    <option value="Oceania">Oceania</option>
-                </select>
-            </div>
-
-        </nav>
-
         <div id="booksList" class="books-list"></div>
     </div>
 

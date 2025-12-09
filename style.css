@@ -94,6 +94,27 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
+/* When the gallery contains section blocks (heading + nested grids)
+   prevent the outer container from acting as a grid so sections stack vertically. */
+.gallery.sectioned {
+    display: block;
+}
+
+.gallery-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 160px));
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 1.05rem;
+    margin: 0.75rem 0 0.5rem;
+    color: #333;
+    font-weight: 600;
+    padding-left: 1.5rem;
+}
+
 .gallery-item {
     display: flex;
     flex-direction: column;
