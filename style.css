@@ -18,6 +18,18 @@ body {
     font-size: 0.95rem;
 }
 
+/* When the stats display is placed between the H1 and subtitle,
+   center it and give a small separation from the title/subtitle. */
+.main-title + .stat-display {
+    display: block;
+    text-align: center;
+    margin: 0 0 1rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+    padding: 0.15rem 0;
+}
+
 .top-link {
     position: absolute;
     top: 1.5rem;
