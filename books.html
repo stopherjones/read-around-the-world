@@ -110,6 +110,13 @@
             color: #888;
         }
 
+        .section-title {
+            font-size: 1.05rem;
+            margin: 1.25rem 0 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 1rem;
@@ -158,56 +165,70 @@
             const booksList = document.getElementById("booksList");
             booksList.innerHTML = "";
 
-            // Filter for countries with read: true and books
-            const readCountries = countriesData.filter(c => c.read && c.books.length > 0);
+            // Filter for countries/territories with read: true and books
+            const readItems = countriesData.filter(c => c.read && c.books && c.books.length > 0);
 
-            if (readCountries.length === 0) {
+            if (readItems.length === 0) {
                 booksList.innerHTML = '<div class="empty-state">No books recorded yet.</div>';
                 return;
             }
 
-            readCountries.forEach(country => {
-                country.books.forEach(book => {
-                    const item = document.createElement("div");
-                    item.classList.add("book-item");
+            const countries = readItems.filter(c => c.type === 'country');
+            const territories = readItems.filter(c => c.type === 'territory');
 
-                    // Flag thumbnail
-                    const flagDiv = document.createElement("div");
-                    flagDiv.classList.add("flag-thumbnail");
+            function renderSection(title, items) {
+                if (!items || items.length === 0) return;
+                const heading = document.createElement('div');
+                heading.classList.add('section-title');
+                heading.textContent = title;
+                booksList.appendChild(heading);
 
-                    const img = document.createElement("img");
-                    if (country.code.includes("/") || country.code.startsWith("http")) {
-                        img.src = country.code;
-                    } else {
-                        img.src = `https://flagcdn.com/w640/${country.code}.png`;
-                    }
-                    img.alt = `Flag of ${country.name}`;
-                    flagDiv.appendChild(img);
+                items.forEach(country => {
+                    country.books.forEach(book => {
+                        const item = document.createElement("div");
+                        item.classList.add("book-item");
 
-                    // Book details
-                    const details = document.createElement("div");
-                    details.classList.add("book-details");
+                        // Flag thumbnail
+                        const flagDiv = document.createElement("div");
+                        flagDiv.classList.add("flag-thumbnail");
 
-                    const countryName = document.createElement("div");
-                    countryName.classList.add("country-name");
-                    countryName.textContent = country.name;
-                    details.appendChild(countryName);
+                        const img = document.createElement("img");
+                        if (country.code.includes("/") || country.code.startsWith("http")) {
+                            img.src = country.code;
+                        } else {
+                            img.src = `https://flagcdn.com/w640/${country.code}.png`;
+                        }
+                        img.alt = `Flag of ${country.name}`;
+                        flagDiv.appendChild(img);
 
-                    const title = document.createElement("div");
-                    title.classList.add("book-title");
-                    title.textContent = book.title;
-                    details.appendChild(title);
+                        // Book details
+                        const details = document.createElement("div");
+                        details.classList.add("book-details");
 
-                    const author = document.createElement("div");
-                    author.classList.add("book-author");
-                    author.textContent = `by ${book.author}`;
-                    details.appendChild(author);
+                        const countryName = document.createElement("div");
+                        countryName.classList.add("country-name");
+                        countryName.textContent = country.name;
+                        details.appendChild(countryName);
 
-                    item.appendChild(flagDiv);
-                    item.appendChild(details);
-                    booksList.appendChild(item);
+                        const title = document.createElement("div");
+                        title.classList.add("book-title");
+                        title.textContent = book.title;
+                        details.appendChild(title);
+
+                        const author = document.createElement("div");
+                        author.classList.add("book-author");
+                        author.textContent = `by ${book.author}`;
+                        details.appendChild(author);
+
+                        item.appendChild(flagDiv);
+                        item.appendChild(details);
+                        booksList.appendChild(item);
+                    });
                 });
-            });
+            }
+
+            renderSection('Countries', countries);
+            renderSection('Other regions and territories', territories);
         }
     </script>
 </body>
