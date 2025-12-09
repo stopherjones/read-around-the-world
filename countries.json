@@ -2,6 +2,8 @@
   {
     "name": "Afghanistan",
     "code": "af",
+    "type": "country",
+    "continent": "Asia",
     "read": true,
     "books": [
       { "title": "The Kite Runner", "author": "Khaled Hosseini" }
@@ -10,36 +12,24 @@
   {
     "name": "Albania",
     "code": "al",
-    "read": false,
-    "books": []
-  },
-  {
-    "name": "Algeria",
-    "code": "dz",
-    "read": false,
-    "books": []
-  },
-  {
-    "name": "England",
-    "code": "gb-eng",
+    "type": "country",
+    "continent": "Europe",
     "read": false,
     "books": []
   },
   {
     "name": "Scilly",
-    "code": "scilly",
-    "read": false,
-    "books": []
-  },
-  {
-    "name": "Macau",
-    "code": "mo",
+    "code": "images/scilly.png",
+    "type": "territory",
+    "continent": "Europe",
     "read": false,
     "books": []
   },
   {
     "name": "Conch Republic",
-    "code": "conch",
+    "code": "images/conch.png",
+    "type": "territory",
+    "continent": "North America",
     "read": false,
     "books": []
   }
