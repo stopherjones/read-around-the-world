@@ -85,18 +85,15 @@ function renderGallery(data) {
 
 document.getElementById("searchInput").addEventListener("input", applyFilters);
 document.getElementById("continentFilter").addEventListener("change", applyFilters);
-document.getElementById("typeFilter").addEventListener("change", applyFilters);
 
 function applyFilters() {
     const search = document.getElementById("searchInput").value.toLowerCase();
     const continent = document.getElementById("continentFilter").value;
-    const type = document.getElementById("typeFilter").value;
 
     const filtered = countriesData.filter(c => {
         const matchSearch = c.name.toLowerCase().includes(search);
         const matchContinent = continent === "all" || c.continent === continent;
-        const matchType = type === "all" || c.type === type;
-        return matchSearch && matchContinent && matchType;
+        return matchSearch && matchContinent;
     });
 
     renderGallery(filtered);
