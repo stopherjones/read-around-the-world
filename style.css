@@ -198,6 +198,7 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 
+
 .popup-box h2 {
     margin-top: 0;
     margin-bottom: 0.8rem;
@@ -217,5 +218,104 @@ body {
     text-decoration: none;
     cursor: pointer;
     text-align: center;
+}
+
+
+/* ----------------- BOOKS PAGE (moved from books.html) ----------------- */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.back-link {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    z-index: 60;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.book-item {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+}
+
+.flag-thumbnail {
+    width: 80px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #ddd;
+}
+
+.flag-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-details {
+    flex: 1;
+}
+
+.country-name {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.book-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #222;
+}
+
+.book-author {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+}
+
+@media (max-width: 600px) {
+    .book-item {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .flag-thumbnail {
+        width: 70px;
+        height: 52px;
+    }
+
+    .book-title {
+        font-size: 1rem;
+    }
 }
 
