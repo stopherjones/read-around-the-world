@@ -125,7 +125,7 @@
   { "name": "Nicaragua", "code": "ni", "type": "country", "continent": "North America", "read": false, "books": [] },
   { "name": "Niger", "code": "ne", "type": "country", "continent": "Africa", "read": false, "books": [] },
   { "name": "Nigeria", "code": "ng", "type": "country", "continent": "Africa", "read": true, "books": [{ "title": "Half of a Yellow Sun", "author": "Chimamanda Ngozi Adichie" }] },
-  { "name": "North Korea", "code": "kp", "type": "country", "continent": "Asia", "read": true, "books": [{ "title": "Pachinko", "author": "Min Jin Lee" }] },
+  { "name": "North Korea", "code": "kp", "type": "country", "continent": "Asia", "read": false, "books": [] },
   { "name": "North Macedonia", "code": "mk", "type": "country", "continent": "Europe", "read": false, "books": [] },
   { "name": "Norway", "code": "no", "type": "country", "continent": "Europe", "read": true, "books": [{ "title": "Norse Mythology", "author": "Neil Gaiman" }] },
   { "name": "Oman", "code": "om", "type": "country", "continent": "Asia", "read": false, "books": [] },
