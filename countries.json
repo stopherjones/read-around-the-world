@@ -22,15 +22,9 @@
     "code": "images/scilly.png",
     "type": "territory",
     "continent": "Europe",
-    "read": false,
-    "books": []
-  },
-  {
-    "name": "Conch Republic",
-    "code": "images/conch.png",
-    "type": "territory",
-    "continent": "North America",
-    "read": false,
-    "books": []
+    "read": true,
+    "books": [
+      { "title": "Devil's Table", "author": "Kate Rhodes" }
+    ]
   }
 ]
