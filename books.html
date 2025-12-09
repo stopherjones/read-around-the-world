@@ -162,6 +162,10 @@
             <input type="text" id="searchInput" placeholder="Find a country...">
         </div>
 
+        <div class="stat-display">
+            <span id="statText">0 books read in 0 of 0 countries</span>
+        </div>
+
         <div class="filter-group">
             <label for="continentFilter">Continent</label>
             <select id="continentFilter">
@@ -189,7 +193,20 @@
             .then(data => {
                 countriesData = data;
                 renderBooks();
+                updateStats(data);
             });
+
+        function updateStats(data) {
+            // Count total books and read countries
+            const totalBooks = data.reduce((sum, c) => sum + (c.books ? c.books.length : 0), 0);
+            const readCountries = data.filter(c => c.read).length;
+            const totalCountries = data.filter(c => c.type === 'country').length;
+            
+            const statText = document.getElementById("statText");
+            if (statText) {
+                statText.textContent = `${totalBooks} books read in ${readCountries} of ${totalCountries} countries`;
+            }
+        }
 
         // Attach filter listeners so the nav controls update the list
         const searchEl = document.getElementById('searchInput');
@@ -272,6 +289,7 @@
 
             renderSection('Countries', countries);
             renderSection('Other regions and territories', territories);
+            updateStats(countriesData);
         }
     </script>
 </body>

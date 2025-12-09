@@ -53,7 +53,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    margin-left: auto;
 }
 
 .filter-group label {
@@ -72,11 +71,27 @@ body {
 
 #searchInput {
     min-width: 220px;
-    flex: 1;
+    flex: 0 1 auto;
 }
 
 .filter-group:has(#searchInput) {
     margin-left: 0;
+    flex: 0 1 auto;
+}
+
+.filter-group:has(#continentFilter) {
+    margin-left: auto;
+    flex: 0 0 auto;
+}
+
+.stat-display {
+    flex: 1;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+    align-self: flex-start;
+    padding-top: 0.25rem;
 }
 
 @media (max-width: 600px) {

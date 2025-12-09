@@ -5,7 +5,20 @@ fetch("countries.json")
     .then(data => {
         countriesData = data;
         renderGallery(data);
+        updateStats(data);
     });
+
+function updateStats(data) {
+    // Count total books and read countries
+    const totalBooks = data.reduce((sum, c) => sum + (c.books ? c.books.length : 0), 0);
+    const readCountries = data.filter(c => c.read).length;
+    const totalCountries = data.filter(c => c.type === 'country').length;
+    
+    const statText = document.getElementById("statText");
+    if (statText) {
+        statText.textContent = `${totalBooks} books read in ${readCountries} of ${totalCountries} countries`;
+    }
+}
 
 function renderGallery(data) {
     const gallery = document.getElementById("gallery");
@@ -124,4 +137,5 @@ function applyFilters() {
     });
 
     renderGallery(filtered);
+    updateStats(countriesData);
 }
