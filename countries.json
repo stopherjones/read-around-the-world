@@ -58,7 +58,7 @@
   { "name": "Eswatini", "code": "sz", "type": "country", "continent": "Africa", "read": false, "books": [] },
   { "name": "Ethiopia", "code": "et", "type": "country", "continent": "Africa", "read": false, "books": [] },
   { "name": "Fiji", "code": "fj", "type": "country", "continent": "Oceania", "read": false, "books": [] },
-  { "name": "Finland", "code": "fi", "type": "country", "continent": "Europe", "read": false, "books": [{ "title": "The Limit", "author": "Riikka Pulkkinen" }] },
+  { "name": "Finland", "code": "fi", "type": "country", "continent": "Europe", "read": true, "books": [{ "title": "The Limit", "author": "Riikka Pulkkinen" }] },
   { "name": "France", "code": "fr", "type": "country", "continent": "Europe", "read": false, "books": [] },
   { "name": "Gabon", "code": "ga", "type": "country", "continent": "Africa", "read": false, "books": [] },
   { "name": "Gambia", "code": "gm", "type": "country", "continent": "Africa", "read": true, "books": [{ "title": "One Plstic Bag", "author": "Miranda Paul" }] },
