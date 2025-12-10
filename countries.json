@@ -202,7 +202,7 @@
   "continent": "Europe", 
   "read": true, 
   "books": [{ "title": "The Remains of the Day", "author": "Kazuo Ishiguro" },
-  { "title": "Thursday Murder Club", "author": "Richard Osman" }] },
+  { "title": "A Clockwork Orange", "author": "Anthony Burgess" }] },
   { "name": "Scotland", 
   "code": "images/scotland.png", 
   "type": "territory", 
