@@ -184,7 +184,7 @@
   { "name": "Uganda", "code": "ug", "type": "country", "continent": "Africa", "read": false, "books": [] },
   { "name": "Ukraine", "code": "ua", "type": "country", "continent": "Europe", "read": false, "books": [] },
   { "name": "United Arab Emirates", "code": "ae", "type": "country", "continent": "Asia", "read": false, "books": [] },
-  { "name": "United Kingdom", "code": "gb", "type": "country", "continent": "Europe", "read": false, "books": [] },
+  { "name": "United Kingdom", "code": "gb", "type": "country", "continent": "Europe", "read": true, "books": [{ "title": "Thursday Murder Club", "author": "Richard Osman" }] },
   { "name": "United States", "code": "us", "type": "country", "continent": "North America", "read": true, "books": [{ "title": "The Secret History", "author": "Donna Tartt" }, { "title": "There There", "author": "Tommy Orange" }, { "title": "Where The Crawdads Sing", "author": "Delia Owens" }] },
   { "name": "Uruguay", "code": "uy", "type": "country", "continent": "South America", "read": false, "books": [] },
   { "name": "Uzbekistan", "code": "uz", "type": "country", "continent": "Asia", "read": false, "books": [] },
