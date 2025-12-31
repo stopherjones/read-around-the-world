@@ -288,14 +288,23 @@ body {
 .book-title {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
     color: #222;
 }
 
 .book-author {
+    font-size: 1rem;   /* larger */
+    font-weight: 600;    /* darker/bolder */
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.book-date {
     font-size: 0.95rem;
     color: #666;
+    margin-top: 0.2rem;
 }
+
 
 .empty-state {
     text-align: center;
